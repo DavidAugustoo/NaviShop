@@ -1,3 +1,3 @@
 export default function Product() {
-    return <h1>Página de produtos</h1>
+  return <h1>Página de produtos</h1>
 }
