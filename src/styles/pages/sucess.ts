@@ -1,7 +1,4 @@
-import { GetServerSideProps } from 'next'
-import Stripe from 'stripe'
 import { styled } from '..'
-import { stripe } from '../../lib/stripe'
 
 export const SuccessContainer = styled('main', {
   display: 'flex',

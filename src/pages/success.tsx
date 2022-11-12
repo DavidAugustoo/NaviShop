@@ -6,7 +6,7 @@ import Stripe from 'stripe'
 import { stripe } from '../lib/stripe'
 import { ImageContainer, SuccessContainer } from '../styles/pages/sucess'
 
-interface SucessProps {
+interface SuccessProps {
   customerName: string
   product: {
     name: string
@@ -14,7 +14,7 @@ interface SucessProps {
   }
 }
 
-export default function Success({ customerName, product }: SucessProps) {
+export default function Success({ customerName, product }: SuccessProps) {
   return (
     <>
       <Head>
