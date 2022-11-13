@@ -7,44 +7,25 @@ import {
   ProductContainer,
   ProductDetails,
 } from '../../styles/pages/product'
-import axios from 'axios'
-import { useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useCart } from '../../hooks/useCart'
+import { IProduct } from '../../context/CartContext'
 
 interface ProductProps {
-  product: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-    description: string
-    defaultPriceId: string
-  }
+  product: IProduct
 }
 
 export default function Product({ product }: ProductProps) {
-  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
-    useState(false)
+  const { isFallback } = useRouter()
 
-  async function handleBuyProduct() {
-    console.log('oi')
+  const { addToCart, checkIfItemAlreadyExists } = useCart()
 
-    try {
-      setIsCreatingCheckoutSession(true)
-
-      const response = await axios.post('/api/checkout', {
-        priceId: product.defaultPriceId,
-      })
-
-      const { checkoutUrl } = response.data
-
-      window.location.href = checkoutUrl
-    } catch (err) {
-      setIsCreatingCheckoutSession(false)
-
-      alert('Falha ao redirecionar ao checkout')
-    }
+  if (isFallback) {
+    return <p>Loading...</p>
   }
+
+  const itemAlreadyInCart = checkIfItemAlreadyExists(product.id)
 
   return (
     <>
@@ -64,10 +45,12 @@ export default function Product({ product }: ProductProps) {
           <p>{product.description}</p>
 
           <button
-            onClick={handleBuyProduct}
-            disabled={isCreatingCheckoutSession}
+            onClick={() => addToCart(product)}
+            disabled={itemAlreadyInCart}
           >
-            Comprar agora
+            {itemAlreadyInCart
+              ? 'Produto já está no carrinho'
+              : 'Colocar no carrinho'}
           </button>
         </ProductDetails>
       </ProductContainer>
@@ -78,7 +61,7 @@ export default function Product({ product }: ProductProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: true,
   }
 }
 
@@ -104,6 +87,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
           currency: 'BRL',
         }).format((price.unit_amount as number) / 100),
         description: product.description,
+        numberPrice: (price.unit_amount as number) / 100,
         defaultPriceId: price.id,
       },
     },
