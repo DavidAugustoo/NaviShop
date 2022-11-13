@@ -16,6 +16,8 @@ export const Product = styled(Link, {
   position: 'relative',
   overflow: 'hidden',
   minWidth: 540,
+  width: '100%',
+  minHeight: 656,
 
   display: 'flex',
   alignItems: 'center',
@@ -54,6 +56,12 @@ export const Product = styled(Link, {
       fontWeight: 'bold',
       color: '$green300',
     },
+
+    div: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 4,
+    },
   },
 
   '&:hover': {
@@ -61,5 +69,15 @@ export const Product = styled(Link, {
       transform: 'translateY(0%)',
       opacity: 1,
     },
+  },
+})
+
+export const SliderContainer = styled('div', {
+  display: 'flex',
+  gap: '3rem',
+  margin: '0 auto',
+
+  '.embla__slide': {
+    minWidth: '43.5rem',
   },
 })
