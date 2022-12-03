@@ -55,6 +55,8 @@ export default function Home({ products }: HomeProps) {
                   <ProductSkeleton className="embla__slide" />
                   <ProductSkeleton className="embla__slide" />
                   <ProductSkeleton className="embla__slide" />
+                  <ProductSkeleton className="embla__slide" />
+                  <ProductSkeleton className="embla__slide" />
                 </>
               ) : (
                 <>
