@@ -43,7 +43,7 @@ export default function Home({ products }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Home | Style Shop</title>
+        <title>Home | Navi Shop</title>
       </Head>
 
       <div style={{ overflow: 'hidden', width: '100%' }}>

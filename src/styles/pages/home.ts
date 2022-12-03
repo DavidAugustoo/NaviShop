@@ -3,14 +3,14 @@ import Link from 'next/link'
 
 export const HomeContainer = styled('main', {
   display: 'flex',
-  width: '100%',
+  width: '100vw',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
   minHeight: 656,
 })
 
 export const Product = styled(Link, {
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  background: '$gray800',
   borderRadius: 8,
   cursor: 'pointer',
   position: 'relative',
@@ -54,7 +54,7 @@ export const Product = styled(Link, {
     span: {
       fontSize: '$xl',
       fontWeight: 'bold',
-      color: '$green300',
+      color: '$yellow300',
     },
 
     div: {

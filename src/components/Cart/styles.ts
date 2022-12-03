@@ -50,7 +50,7 @@ export const CartProduct = styled('div', {
 export const CartProductImage = styled('div', {
   width: '6.3125rem',
   height: '5.8125rem',
-  background: 'linear-gradient(180deg, #1EA483 0%, #7465D4 100%)',
+  background: '$gray800',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -82,7 +82,7 @@ export const CartProductDetails = styled('div', {
     width: 'max-content',
     background: 'none',
     border: 'none',
-    color: '$green500',
+    color: '$yellow500',
     fontSize: '1rem',
     fontWeight: 700,
   },
@@ -95,8 +95,8 @@ export const CartFinalization = styled('div', {
 
   button: {
     width: '100%',
-    background: '$green500',
-    color: '$white',
+    background: '$yellow500',
+    color: '$gray800',
     fontSize: '$md',
     height: '4.3125rem',
     border: 'none',
@@ -109,7 +109,7 @@ export const CartFinalization = styled('div', {
     },
 
     '&:not(:disabled):hover': {
-      backgroundColor: '$green300',
+      backgroundColor: '$yellow300',
     },
   },
 })

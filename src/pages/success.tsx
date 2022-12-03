@@ -22,7 +22,7 @@ export default function Success({
   return (
     <>
       <Head>
-        <title>Compra Efetuada | Style Shop</title>
+        <title>Compra Efetuada | Navi Shop</title>
 
         <meta name="robots" content="noindex" />
       </Head>

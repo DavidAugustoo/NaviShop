@@ -14,7 +14,7 @@ export const ImageContainer = styled('div', {
   width: '100%',
   maxWidth: 576,
   height: 656,
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  background: '$gray800',
   borderRadius: 8,
   padding: '0.25rem',
 
@@ -40,7 +40,7 @@ export const ProductDetails = styled('div', {
     marginTop: '1rem',
     display: 'block',
     fontSize: '$2xl',
-    color: '$green300',
+    color: '$yellow300',
   },
 
   p: {
@@ -52,9 +52,9 @@ export const ProductDetails = styled('div', {
 
   button: {
     marginTop: 'auto',
-    backgroundColor: '$green500',
+    backgroundColor: '$yellow500',
     border: 0,
-    color: '$white',
+    color: '$gray800',
     borderRadius: 8,
     padding: '1.25rem',
     cursor: 'pointer',
@@ -67,7 +67,7 @@ export const ProductDetails = styled('div', {
     },
 
     '&:not(:disabled):hover': {
-      backgroundColor: '$green300',
+      backgroundColor: '$yellow300',
     },
   },
 })

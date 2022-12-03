@@ -30,7 +30,7 @@ export default function Product({ product }: ProductProps) {
   return (
     <>
       <Head>
-        <title>{product.name} | Style Shop</title>
+        <title>{product.name} | Navi Shop</title>
       </Head>
 
       <ProductContainer>

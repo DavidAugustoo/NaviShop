@@ -26,12 +26,12 @@ export const SuccessContainer = styled('main', {
     display: 'block',
     marginTop: '5rem',
     fontSize: '$lg',
-    color: '$green500',
+    color: '$yellow500',
     textDecoration: 'none',
     fontWeight: 'bold',
 
     '&:hover': {
-      color: '$green300',
+      color: '$yellow300',
     },
   },
 })
@@ -49,7 +49,7 @@ export const ImagesContainer = styled('section', {
 export const ImageContainer = styled('div', {
   width: 140,
   height: 140,
-  background: 'linear-gradient(180deg, #1ea483 0%, #7465d4 100%)',
+  background: '$gray800',
   boxShadow: '0px 0px 60px rgba(0, 0, 0, 0.8)',
   borderRadius: '50%',
   position: 'relative',

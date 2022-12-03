@@ -3,6 +3,7 @@ import { HeaderContainer } from './styles'
 import logoImg from '../../assets/logo.svg'
 import { Cart } from '../Cart'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export function Header() {
   const { pathname } = useRouter()
@@ -11,7 +12,9 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <img src={logoImg.src} alt="" />
+      <Link href={'/'}>
+        <img src={logoImg.src} alt="" />
+      </Link>
 
       {showCartButton && <Cart />}
     </HeaderContainer>

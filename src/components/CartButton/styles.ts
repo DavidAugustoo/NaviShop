@@ -30,11 +30,11 @@ export const CartButtonContainer = styled('button', {
         color: '$600',
       },
       green: {
-        backgroundColor: '$green500',
-        color: 'white',
+        backgroundColor: '$yellow500',
+        color: '$gray800',
 
         '&:not(:disabled):hover': {
-          backgroundColor: '$green300',
+          backgroundColor: '$yellow300',
         },
       },
     },
