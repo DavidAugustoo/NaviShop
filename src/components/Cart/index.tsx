@@ -40,6 +40,7 @@ export function Cart() {
       window.location.href = checkoutUrl
     } catch (err) {
       setIsCreatingCheckoutSession(false)
+      console.log(err)
       alert('Falhar ao redirecionar para o checkout'!)
     }
   }
