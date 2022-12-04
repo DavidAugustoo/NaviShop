@@ -2,6 +2,9 @@ import Link from 'next/link'
 import { styled } from '../../styles'
 
 export const ProductsWithCarouselContainer = styled('div', {
+  height: '70vh',
+  marginTop: '2rem',
+
   '@media (max-width: 768px)': {
     display: 'none',
   },
@@ -23,14 +26,15 @@ export const Product = styled(Link, {
   overflow: 'hidden',
   minWidth: 540,
   width: '100%',
-  minHeight: 656,
-
+  minHeight: '60vh',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
 
   img: {
     objectFit: 'cover',
+    width: '70%',
+    height: 'auto',
   },
 
   footer: {
@@ -82,8 +86,4 @@ export const SliderContainer = styled('div', {
   display: 'flex',
   gap: '3rem',
   margin: '0 auto',
-
-  '.embla__slide': {
-    minWidth: '43.5rem',
-  },
 })
