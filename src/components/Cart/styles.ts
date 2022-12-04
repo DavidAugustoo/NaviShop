@@ -28,6 +28,10 @@ export const CartContent = styled(Dialog.Content, {
     flex: 1,
     overflowY: 'auto',
   },
+
+  '@media (max-width: 768px)': {
+    width: '100%',
+  },
 })
 
 export const CartClose = styled(Dialog.Close, {
@@ -65,6 +69,7 @@ export const CartProductDetails = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   height: '100%',
+  gap: '0.5rem',
 
   p: {
     color: '$gray300',
