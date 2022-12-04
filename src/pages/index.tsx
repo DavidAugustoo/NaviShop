@@ -1,15 +1,12 @@
-import Image from 'next/image'
 import Head from 'next/head'
-import { HomeContainer, Product, SliderContainer } from '../styles/pages/home'
-import useEmblaCarousel from 'embla-carousel-react'
 import { GetStaticProps } from 'next'
 import { stripe } from '../lib/stripe'
 import Stripe from 'stripe'
-import { CartButton } from '../components/CartButton'
 import { useCart } from '../hooks/useCart'
 import { IProduct } from '../context/CartContext'
 import { MouseEvent, useEffect, useState } from 'react'
-import { ProductSkeleton } from '../components/ProductSkeleton'
+import { ProductsWithCarousel } from '../components/ProductsWithCarousel'
+import { ProductsWithoutCarousel } from '../components/ProductsWithoutCarousel'
 
 interface HomeProps {
   products: IProduct[]
@@ -34,69 +31,23 @@ export default function Home({ products }: HomeProps) {
     addToCart(product)
   }
 
-  const [emblaRef] = useEmblaCarousel({
-    align: 'start',
-    skipSnaps: false,
-    dragFree: true,
-  })
-
   return (
     <>
       <Head>
         <title>Home | Navi Shop</title>
       </Head>
-
-      <div style={{ overflow: 'hidden', width: '100%' }}>
-        <HomeContainer>
-          <div className="embla" ref={emblaRef}>
-            <SliderContainer className="embla__container container">
-              {isLoading ? (
-                <>
-                  <ProductSkeleton className="embla__slide" />
-                  <ProductSkeleton className="embla__slide" />
-                  <ProductSkeleton className="embla__slide" />
-                  <ProductSkeleton className="embla__slide" />
-                  <ProductSkeleton className="embla__slide" />
-                </>
-              ) : (
-                <>
-                  {products.map((product) => (
-                    <Product
-                      className="embla__slide"
-                      key={product.id}
-                      href={`/product/${product.id}`}
-                      prefetch={false}
-                      passHref
-                    >
-                      <Image
-                        src={product.imageUrl}
-                        width={520}
-                        height={480}
-                        alt=""
-                        placeholder="blur"
-                        blurDataURL={product.imageUrl}
-                      />
-
-                      <footer>
-                        <div>
-                          <strong>{product.name}</strong>
-                          <span>{product.price}</span>
-                        </div>
-                        <CartButton
-                          size="large"
-                          color="green"
-                          disabled={checkIfItemAlreadyExists(product.id)}
-                          onClick={(e) => handleAddToCart(e, product)}
-                        />
-                      </footer>
-                    </Product>
-                  ))}
-                </>
-              )}
-            </SliderContainer>
-          </div>
-        </HomeContainer>
-      </div>
+      <ProductsWithCarousel
+        products={products}
+        isLoading={isLoading}
+        handleAddToCart={handleAddToCart}
+        checkIfItemAlreadyExists={checkIfItemAlreadyExists}
+      />
+      <ProductsWithoutCarousel
+        products={products}
+        isLoading={isLoading}
+        handleAddToCart={handleAddToCart}
+        checkIfItemAlreadyExists={checkIfItemAlreadyExists}
+      />
     </>
   )
 }

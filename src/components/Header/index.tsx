@@ -12,11 +12,13 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <Link href={'/'}>
-        <img src={logoImg.src} alt="" />
-      </Link>
+      <div>
+        <Link href={'/'}>
+          <img src={logoImg.src} alt="" />
+        </Link>
 
-      {showCartButton && <Cart />}
+        {showCartButton && <Cart />}
+      </div>
     </HeaderContainer>
   )
 }
