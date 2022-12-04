@@ -21,6 +21,12 @@ export const ProductSkeletonContainer = styled('div', {
     gridTemplateColumns: '330px 100px',
     justifyContent: 'space-between',
   },
+
+  '@media (max-width: 768px)': {
+    display: 'block',
+    maxWidth: '100%',
+    width: '100%',
+  },
 })
 
 export const SkeletonItem = styled('div', {
