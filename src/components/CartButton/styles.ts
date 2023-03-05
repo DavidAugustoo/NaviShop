@@ -63,3 +63,18 @@ export const CartButtonContainer = styled('button', {
     size: 'medium',
   },
 })
+
+export const CartCount = styled('span', {
+  position: 'absolute',
+  top: -5,
+  right: -5,
+  width: 20,
+  height: 20,
+  backgroundColor: '$yellow500',
+  borderRadius: 100,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '$gray900',
+  fontWeight: 'bold',
+})
