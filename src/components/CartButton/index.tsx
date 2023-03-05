@@ -9,7 +9,7 @@ export function CartButton({ quantity, ...rest }: CartButtonProps) {
   return (
     <CartButtonContainer {...rest}>
       <Handbag weight="bold" />
-      {quantity && <CartCount>{quantity}</CartCount>}
+      {quantity !== undefined && <CartCount>{quantity}</CartCount>}
     </CartButtonContainer>
   )
 }
