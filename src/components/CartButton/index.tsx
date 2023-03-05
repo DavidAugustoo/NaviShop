@@ -3,7 +3,7 @@ import { ComponentProps } from 'react'
 import { CartButtonContainer, CartCount } from './styles'
 
 type CartButtonProps = ComponentProps<typeof CartButtonContainer> & {
-  quantity: number
+  quantity?: number
 }
 export function CartButton({ quantity, ...rest }: CartButtonProps) {
   return (
